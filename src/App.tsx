@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./Components/Header";
+import { Grid } from "@material-ui/core";
+import TodoList from "./Components/TodoList";
+import SearchBar from "./Components/SearchBar";
+import Calendar from "./Components/Calendar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Header />
+        </Grid>
+
+        <Grid item xs={3}>
+          left bar
+        </Grid>
+
+        <Grid item xs={5}>
+          <Grid container>
+            <Grid item xs={12}>
+              <SearchBar />
+            </Grid>
+            <Grid item xs={12}>
+              <TodoList />
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item xs={4}>
+          right bar
+          <Calendar />
+        </Grid>
+      </Grid>
     </div>
   );
 }
